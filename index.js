@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Shooting stars API')
 })
 
-app.get('/default', async (req, res) => {
+app.get('/stars/all', async (req, res) => {
   const cached = cache.get(PROXY_KEY)
   if (cached) {
     res.json(cached)
