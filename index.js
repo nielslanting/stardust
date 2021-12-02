@@ -32,7 +32,7 @@ app.get('/stars/all', async (req, res) => {
 })
 
 app.get('/stars', (req, res) => {
-  const stars = cache.keys().map(x => cache.get(x))
+  const stars = cache.keys().filter((key => !Number.isNaN(key))).map(x => cache.get(x))
   res.json(stars)
 })
 
